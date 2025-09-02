@@ -1,7 +1,9 @@
 package com.huntech.ms.auth_service.service.impl;
 
+import com.huntech.ms.auth_service.model.Role;
 import com.huntech.ms.auth_service.model.User;
 import com.huntech.ms.auth_service.repository.UserRepository;
+import com.huntech.ms.auth_service.service.IRoleService;
 import com.huntech.ms.auth_service.service.IUserService;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -16,16 +18,19 @@ import java.util.List;
 public class UserServiceImpl implements IUserService {
 
     private final UserRepository repository;
+    private final IRoleService service;
     private final PasswordEncoder passwordEncoder;
 
     @Override
     public User save(User user) throws Exception {
-        // Usar builder para crear nuevo usuario (opcional, puedes usar el user directamente)
+        Role role = service.findById(user.getRole().getIdRole());
+
         User newUser = User.builder()
                 .idUser(user.getIdUser())
                 .username(user.getUsername())
-                .password(passwordEncoder.encode(user.getPassword())) // Encriptar
+                .password(passwordEncoder.encode(user.getPassword()))
                 .enabled(user.isEnabled())
+                .role(role)
                 .build();
 
         return repository.save(newUser);

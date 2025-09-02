@@ -25,4 +25,7 @@ public class User {
         @Column(nullable = false)
         private boolean enabled;
 
+        @ManyToOne(fetch = FetchType.EAGER)
+        @JoinColumn(name = "id_role", nullable = false, foreignKey = @ForeignKey(name = "fk_user_role"))
+        private Role role;
 }
