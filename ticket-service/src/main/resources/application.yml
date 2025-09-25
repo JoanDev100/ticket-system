@@ -1,0 +1,17 @@
+server
+ port: 8082
+
+# MongoDB Configuration for Docker
+spring:
+data:
+mongodb:
+host: localhost\
+port: 27017  # ? Puerto EXPUESTO por Docker
+database: ticketdb_dev
+# username: admin_tickets    # Opcional si tienes auth en MongoDB
+# password: password_tickets_123
+
+# Logging para ver las queries de MongoDB
+logging:
+level:
+org.springframework.data.mongodb.core: DEBUG
