@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository
 public interface ITicketRepo extends MongoRepository<Ticket, String> {
-    List<Ticket> findByCreatedBy(String userId);
+    List<Ticket> findByCreatedById(Integer userId);
     List<Ticket> findByStatus(String status);
     List<Ticket> findByPriority(String priority);
     List<Ticket> findByCategory(String category);
@@ -20,4 +20,6 @@ public interface ITicketRepo extends MongoRepository<Ticket, String> {
 
     @Query("{ 'description': { '$regex': ?0, '$options': 'i' } }")
     List<Ticket> findByDescriptionContaining(String description);
+
+    List<Ticket> findByAssignedToUsername(String username);
 }

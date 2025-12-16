@@ -2,6 +2,7 @@ package com.huntech.ms.auth_service.service.impl;
 
 import com.huntech.ms.auth_service.model.Role;
 import com.huntech.ms.auth_service.model.User;
+import com.huntech.ms.auth_service.model.dto.UserDTO;
 import com.huntech.ms.auth_service.repository.UserRepository;
 import com.huntech.ms.auth_service.service.IRoleService;
 import com.huntech.ms.auth_service.service.IUserService;
@@ -66,5 +67,11 @@ public class UserServiceImpl implements IUserService {
     @Override
     public void delete(Integer id) throws Exception {
         repository.deleteById(id);
+    }
+
+    @Override
+    public User findByUsername(String username) throws Exception {
+        User user= repository.findOneByUsername(username);
+        return user;
     }
 }

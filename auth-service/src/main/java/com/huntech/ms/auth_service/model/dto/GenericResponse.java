@@ -1,4 +1,4 @@
-package com.huntech.ms.auth_service.dto;
+package com.huntech.ms.auth_service.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 

@@ -1,0 +1,16 @@
+server:
+  port: ${SERVER_PORT}
+
+spring:
+  data:
+    mongodb:
+      host: ${DB_HOST}
+      port: ${DB_PORT}
+      database: ticketdb_api_dev
+
+logging:
+level:
+org.springframework.data.mongodb.core: DEBUG
+
+jwt:
+  secret: ${SECRET_TOKEN}

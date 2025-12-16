@@ -1,6 +1,6 @@
 package com.huntech.ms.auth_service.exception;
 
-import com.huntech.ms.auth_service.dto.GenericResponse;
+import com.huntech.ms.auth_service.model.dto.GenericResponse;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;

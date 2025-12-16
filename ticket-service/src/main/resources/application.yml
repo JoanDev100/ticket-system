@@ -1,15 +1,3 @@
-server:
-  port: 8082
-
 spring:
-  data:
-    mongodb:
-      host: localhost
-      port: 27017   # Puerto expuesto por Docker (ver docker-compose o docker run)
-      database: ticketdb_api_dev
-# username: admin_tickets   # solo si activaste auth en MongoDB
-# password: password_tickets_123
-
-logging:
-level:
-org.springframework.data.mongodb.core: DEBUG
+  profiles:
+    active: dev

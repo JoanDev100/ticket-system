@@ -1,6 +1,7 @@
 package com.huntech.ms.ticket_service.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
@@ -11,6 +12,9 @@ import java.util.List;
 
 @Document(collection = "tickets")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Ticket {
 
     @Id
@@ -23,8 +27,11 @@ public class Ticket {
     private String priority; // LOW, MEDIUM, HIGH, URGENT
     private String category; // TECHNICAL, BILLING, GENERAL
 
-    private String createdBy; // User ID from auth-service
-    private String assignedTo; // User ID from auth-service (optional)
+    private Integer createdById; // User ID from auth-service
+    private String createdByUsername;
+
+    private Integer assignedToId; // User ID from auth-service (optional)
+    private String assignedToUsername;
 
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
